@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "noEmit": true, // Prevents output of compiled files
+    "skipLibCheck": true, // Skips type checking of declaration files
+    "strict": false, // Disables strict type checking options
+    "noUnusedLocals": false, // Allow unused local variables
+    "noUnusedParameters": false // Allow unused function parameters
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}
