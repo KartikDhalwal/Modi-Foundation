@@ -4,7 +4,7 @@ import Image from "next/image";
 import Carousel from "@/app/components/crosole";
 import Carousel1 from "@/app/components/crosole";
 
-function Home1({ isMobile }) {
+function Home1({ isMobile  }) {
   return (
     <>
       <Carousel1 isMobile={isMobile} />

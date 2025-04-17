@@ -8,122 +8,122 @@ interface Dives {
 }
 const Team = () => {
   const divs: Dives[] = [
-    {
-      title: "Mision",
-      image: "/employees/mission.png",
-      dse: 'To offer each industry sector with a need-based solution.ERP needs to stand for "A unique complete single solution encompassing 100% of an organizations activities.',
-    },
-    {
-      title: "Vision",
-      image: "/employees/bulb.jfif",
-      dse: "To serve all over the India and wants more efficient environment for Automation",
-    },
-    {
-      title: "Assurance",
-      image: "/employees/assurance.png",
-      dse: "The service and support schedule is created in such a manner that it automatically upholds the Auto-vyn promise to provide their valued customers with the greatest services ever",
-    },
+    // {
+    //   title: "Mision",
+    //   image: "/employees/mission.png",
+    //   dse: 'To offer each industry sector with a need-based solution.ERP needs to stand for "A unique complete single solution encompassing 100% of an organizations activities.',
+    // },
+    // {
+    //   title: "Vision",
+    //   image: "/employees/bulb.jfif",
+    //   dse: "To serve all over the India and wants more efficient environment for Automation",
+    // },
+    // {
+    //   title: "Assurance",
+    //   image: "/employees/assurance.png",
+    //   dse: "The service and support schedule is created in such a manner that it automatically upholds the Auto-vyn promise to provide their valued customers with the greatest services ever",
+    // },
   ];
 
   const head = [
-    {
-      name: "B.L. Porwal",
-      jobTitle: "DIRECTOR",
-      image: "/employees/DirectorNew.JPG",
-      dse: "We at VYN Automation PVT Ltd formerly known as AUTO-VYN, started our journey in 2017, and have been engaged with providing ERP Solutions to Automobile dealers since then. Having crossed many mile stones during this journey of more than 8 years, this organization was started with the aim to achieve leadership in the field of ERP and Financial Accounting solution Provider in Automobile domain. And now within this short period of time, it is known as a company of reputation, built upon the solid building blocks of transparency and progressiveness. Since its foundation, the company has shown exponential growth. As a company, we continue to offer unmatched value to our clients on the strength of our sound fundamentals in core businesses. We have always fine-tuned our energy, dedication and commitments with positive outlook to cope with the demands of a growing business. The company is committed to, and ensures the welfare and safety of our staff and workers. The credit for our continuing success rests on the performance of our people, by far, our most important asset. The company is privileged to have an excellent and experienced leadership team with strong entrepreneurial, engineering & administrative skills. I am grateful to all the people who have reposed confidence in us and we reaffirm our commitment to build upon industry standards, in order to provide outstanding value to everybody associated with us.",
-    },
-    {
-      name: "Yuvraj Porwal",
-      jobTitle: "CEO",
-      image: "/employees/yuvrajsirNew.JPG",
-      dse: "Over the years, we have seen a consistent shift in the trends and technologies used to start a new business and let it grow. Starting what was effectively a new company, we needed to establish a presence and make a name for ourselves in a highly competitive market – from an economic as well as a strategic point of view – but with amazing support from clients, partners, and dedicated staff, we have indeed managed to build an extraordinary name in the industry. We have grown tremendously and are eagerly looking to the future. Initially we stated in NCR with MSIL dealers and two years later we have expanded our reach to PAN India and today, we have positioned ourselves as a trusted name in Automobile dealers for providing ERP Solutions, Asset Management, HRMS system, Mobile App and web IT solutions along with a growth solutions provider for their businesses. My target is to make VYN Automation a successful company that is a combination of technology and best solution provider to digitalized the Automobile dealers in their day to day business operations and provide a strategic solution with delivering the best practice of this industry. VYN Automation has been delivering software solutions that are building top technologies for about a decade now. We want to believe and implement binding technologies with perfection in all the work we do. Our extensive expertise in ERP Implementation and our understanding towards automobile business leads our clients to the digital age by  influencing end-user experience, business innovation, and business efficiency. Our capabilities. I am always happy and open to indulge in discussion with clients, employees and colleagues to help and learn as the learning should never stop.",
-    },
+    // {
+    //   name: "B.L. Porwal",
+    //   jobTitle: "DIRECTOR",
+    //   image: "/employees/DirectorNew.JPG",
+    //   dse: "We at VYN Automation PVT Ltd formerly known as AUTO-VYN, started our journey in 2017, and have been engaged with providing ERP Solutions to Automobile dealers since then. Having crossed many mile stones during this journey of more than 8 years, this organization was started with the aim to achieve leadership in the field of ERP and Financial Accounting solution Provider in Automobile domain. And now within this short period of time, it is known as a company of reputation, built upon the solid building blocks of transparency and progressiveness. Since its foundation, the company has shown exponential growth. As a company, we continue to offer unmatched value to our clients on the strength of our sound fundamentals in core businesses. We have always fine-tuned our energy, dedication and commitments with positive outlook to cope with the demands of a growing business. The company is committed to, and ensures the welfare and safety of our staff and workers. The credit for our continuing success rests on the performance of our people, by far, our most important asset. The company is privileged to have an excellent and experienced leadership team with strong entrepreneurial, engineering & administrative skills. I am grateful to all the people who have reposed confidence in us and we reaffirm our commitment to build upon industry standards, in order to provide outstanding value to everybody associated with us.",
+    // },
+    // {
+    //   name: "Yuvraj Porwal",
+    //   jobTitle: "CEO",
+    //   image: "/employees/yuvrajsirNew.JPG",
+    //   dse: "Over the years, we have seen a consistent shift in the trends and technologies used to start a new business and let it grow. Starting what was effectively a new company, we needed to establish a presence and make a name for ourselves in a highly competitive market – from an economic as well as a strategic point of view – but with amazing support from clients, partners, and dedicated staff, we have indeed managed to build an extraordinary name in the industry. We have grown tremendously and are eagerly looking to the future. Initially we stated in NCR with MSIL dealers and two years later we have expanded our reach to PAN India and today, we have positioned ourselves as a trusted name in Automobile dealers for providing ERP Solutions, Asset Management, HRMS system, Mobile App and web IT solutions along with a growth solutions provider for their businesses. My target is to make VYN Automation a successful company that is a combination of technology and best solution provider to digitalized the Automobile dealers in their day to day business operations and provide a strategic solution with delivering the best practice of this industry. VYN Automation has been delivering software solutions that are building top technologies for about a decade now. We want to believe and implement binding technologies with perfection in all the work we do. Our extensive expertise in ERP Implementation and our understanding towards automobile business leads our clients to the digital age by  influencing end-user experience, business innovation, and business efficiency. Our capabilities. I am always happy and open to indulge in discussion with clients, employees and colleagues to help and learn as the learning should never stop.",
+    // },
   ];
 
   const team = [
-    { name: "Gopal Sodani", jobTitle: "COO", image: "/employees/gopal.jpg" },
-    // { name: "Mukul Saxena", jobTitle: "Marketing Head", image: "/employees/Mukul.png" },
-    {
-      name: "Ayushi Somani",
-      jobTitle: "Project Manager",
-      image: "/employees/AyushiNew.JPG",
-    },
-    {
-      name: "Pulkit Totla",
-      jobTitle: "Team Leader",
-      image: "/employees/PulkitNew.JPG",
-    },
-    {
-      name: "Karishna K. Sharma",
-      jobTitle: "Software Engineer",
-      image: "/employees/krishana.jpg",
-    },
-    // { name: "Priynka Kumawat", jobTitle: "HR", image: "/employees/hr.jpg" },
-    {
-      name: "Mohit Tater",
-      jobTitle: "Full Stack Developer",
-      image: "/employees/mohit.jpeg",
-    },
-    {
-      name: "Kartik Dhalwal",
-      jobTitle: "Full Stack Developer",
-      image: "/employees/kartik.jpeg",
-    },
-    {
-      name: "Himanshu Garg",
-      jobTitle: "Full Stack Developer",
-      image: "/employees/himanshu.jpeg",
-    },
-    {
-      name: "Komal Nuwal",
-      jobTitle: "Full Stack Developer",
-      image: "/employees/komal.jpg",
-    },
-    {
-      name: "Gourav Yadav",
-      jobTitle: "Android Developer",
-      image: "/employees/gaurav.jpg",
-    },
-    {
-      name: "Umesh Kumawat",
-      jobTitle: "Full Stack Developer",
-      image: "/employees/umesh.jpeg",
-    },
-    {
-      name: "Rakesh Kumawat",
-      jobTitle: "Frontend Developer",
-      image: "/employees/rakesh.jpeg",
-    },
-    {
-      name: "Khushi Maheshwari",
-      jobTitle: "QA Engineer",
-      image: "/employees/khushiNew.JPG",
-    },
-    {
-      name: "Dhrmendra Khichar",
-      jobTitle: "Software Engineer",
-      image: "/employees/dharmendraNew.JPG",
-    },
-    {
-      name: "Mukul Saxena",
-      jobTitle: "Marketing Head",
-      image: "/employees/Mukul.png",
-    },
-    {
-      name: "Palak Jain",
-      jobTitle: "Software Engineer",
-      image: "/employees/Palak.jpg",
-    },
-    {
-      name: "Rohit",
-      jobTitle: "Software Engineer",
-      image: "/employees/Rohit.jpg",
-    },
-    {
-      name: "Manoj",
-      jobTitle: "Software Engineer",
-      image: "/employees/manoj.jpg",
-    },
+    // { name: "Gopal Sodani", jobTitle: "COO", image: "/employees/gopal.jpg" },
+    // // { name: "Mukul Saxena", jobTitle: "Marketing Head", image: "/employees/Mukul.png" },
+    // {
+    //   name: "Ayushi Somani",
+    //   jobTitle: "Project Manager",
+    //   image: "/employees/AyushiNew.JPG",
+    // },
+    // {
+    //   name: "Pulkit Totla",
+    //   jobTitle: "Team Leader",
+    //   image: "/employees/PulkitNew.JPG",
+    // },
+    // {
+    //   name: "Karishna K. Sharma",
+    //   jobTitle: "Software Engineer",
+    //   image: "/employees/krishana.jpg",
+    // },
+    // // { name: "Priynka Kumawat", jobTitle: "HR", image: "/employees/hr.jpg" },
+    // {
+    //   name: "Mohit Tater",
+    //   jobTitle: "Full Stack Developer",
+    //   image: "/employees/mohit.jpeg",
+    // },
+    // {
+    //   name: "Kartik Dhalwal",
+    //   jobTitle: "Full Stack Developer",
+    //   image: "/employees/kartik.jpeg",
+    // },
+    // {
+    //   name: "Himanshu Garg",
+    //   jobTitle: "Full Stack Developer",
+    //   image: "/employees/himanshu.jpeg",
+    // },
+    // {
+    //   name: "Komal Nuwal",
+    //   jobTitle: "Full Stack Developer",
+    //   image: "/employees/komal.jpg",
+    // },
+    // {
+    //   name: "Gourav Yadav",
+    //   jobTitle: "Android Developer",
+    //   image: "/employees/gaurav.jpg",
+    // },
+    // {
+    //   name: "Umesh Kumawat",
+    //   jobTitle: "Full Stack Developer",
+    //   image: "/employees/umesh.jpeg",
+    // },
+    // {
+    //   name: "Rakesh Kumawat",
+    //   jobTitle: "Frontend Developer",
+    //   image: "/employees/rakesh.jpeg",
+    // },
+    // {
+    //   name: "Khushi Maheshwari",
+    //   jobTitle: "QA Engineer",
+    //   image: "/employees/khushiNew.JPG",
+    // },
+    // {
+    //   name: "Dhrmendra Khichar",
+    //   jobTitle: "Software Engineer",
+    //   image: "/employees/dharmendraNew.JPG",
+    // },
+    // {
+    //   name: "Mukul Saxena",
+    //   jobTitle: "Marketing Head",
+    //   image: "/employees/Mukul.png",
+    // },
+    // {
+    //   name: "Palak Jain",
+    //   jobTitle: "Software Engineer",
+    //   image: "/employees/Palak.jpg",
+    // },
+    // {
+    //   name: "Rohit",
+    //   jobTitle: "Software Engineer",
+    //   image: "/employees/Rohit.jpg",
+    // },
+    // {
+    //   name: "Manoj",
+    //   jobTitle: "Software Engineer",
+    //   image: "/employees/manoj.jpg",
+    // },
   ];
 
   return (
@@ -190,7 +190,7 @@ const Team = () => {
       </div>
 
       <div className="grid grid-cols-1 mt-4 md:grid-cols-2 lg:grid-cols-2 gap-2 px-8 sm:px-16 md:px-32 lg:px-48">
-        {head.map((emp, index) => (
+        {/* {head.map((emp, index) => (
           <div key={index} className="bg-white shadow">
             <Image
               className="h-[400px] w-full object-contain"
@@ -216,7 +216,7 @@ const Team = () => {
             </div>
             </div>
           </div>
-        ))}
+        ))} */}
       </div>
 
       <div className="grid mt-20 grid-cols-12">
@@ -228,7 +228,7 @@ const Team = () => {
       </div>
 
       <div className="grid grid-cols-1 mt-4 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4 px-8 sm:px-16 md:px-32 lg:px-32 mb-16">
-        {team.map((emp, index) => (
+        {/* {team.map((emp, index) => (
           <div key={index} className="bg-white shadow">
             <Image
               className="h-auto w-full object-cover"
@@ -246,7 +246,7 @@ const Team = () => {
               </p>
             </div>
           </div>
-        ))}
+        ))} */}
 
         {/* Fake placeholder div placed after the last item in the grid */}
         <div className="bg-white ">

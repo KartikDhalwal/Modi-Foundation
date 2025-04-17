@@ -2365,7 +2365,7 @@ const Products = ({ setDetailPage, DetailPage }) => {
                 />
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-4">
-                {filteredProducts.map((product) => (
+                {/* {filteredProducts.map((product) => (
                   <div
                     key={product.id}
                     className="border transition-transform duration-300 ease-in-out hover:scale-105 cursor-pointer rounded shadow-lg"
@@ -2394,7 +2394,6 @@ const Products = ({ setDetailPage, DetailPage }) => {
                         onClick={() => DownloadBrochure(product)}
                         className="cursor-pointer flex justify-center items-center w-20 h-8  mr-2"
                       >
-                        {/* <FaFileDownload size={30} color="#854d0e"   /> */}
 
                         <div className="bg-[#8E653F] p-2 rounded">
                           {otp == SentOtp && otp ? (
@@ -2419,7 +2418,7 @@ const Products = ({ setDetailPage, DetailPage }) => {
                       </div>
                     </div>
                   </div>
-                ))}
+                ))} */}
               </div>
             </div>
 

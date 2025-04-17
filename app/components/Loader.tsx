@@ -9,7 +9,7 @@ const LoadingScreen: React.FC = () => {
       justifyContent="center"
       alignItems="center"
       minHeight="100vh"
-      bgcolor="#f5f5f5"
+      bgcolor="transparent"
       flexDirection="column"
     >
       <CircularProgress
