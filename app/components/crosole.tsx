@@ -2,6 +2,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import Image from "next/image";
 import { useState } from "react";
+import { ArrowRightIcon } from "@radix-ui/react-icons";
 
 const Carousel1 = ({ isMobile  }) => {
   const images = [
@@ -15,7 +16,7 @@ const Carousel1 = ({ isMobile  }) => {
   ];
 
   return (
-    <div className="h-full w-full">
+    <div className="h-auto w-auto">
       {!isMobile ? (
         // <Carousel
         //   infiniteLoop
@@ -27,7 +28,7 @@ const Carousel1 = ({ isMobile  }) => {
           {images.map((image, index) => (
             <div
             key={index}
-            className="grid grid-cols-12 h-[650px] lg:h-[650px] xl:h-[650px]"
+            className="grid grid-cols-12 h-[650px] lg:h-[650px] xl:h-[650px] -mt-10"
             style={{
               backgroundImage: `url("${image.src}")`,
               backgroundSize: "cover",
@@ -62,7 +63,7 @@ const Carousel1 = ({ isMobile  }) => {
               </div>
               <div className="text-[white] text-[12px] md:text-[14px] lg:text-[20px] mt-4 ml-16 text-right font-bold">
                <button className="border-2 p-2">
-                DONATE NOW -> 
+                DONATE NOW <ArrowRightIcon/> 
                </button>
               </div>
             </div>

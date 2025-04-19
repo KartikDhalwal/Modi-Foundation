@@ -166,24 +166,44 @@ export default function Home() {
             <LoadingScreen />
           </div>
         ) : (
-          <Box
-            display="flex"
-            flexDirection="column"
-            height="1000vh"
-            color="#34251F"
-          >
+          <Box display="flex" flexDirection="column" height="1000vh">
             <AppBar
-              position="absolute"
+              position="fixed"
               color="transparent"
               elevation={0}
               sx={{
-                backdropFilter: "blur(0px)",
-                boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)",
-                height: "1000vh", // Full height of the viewport
-                width: "100%", // Ensures it covers the full width as well
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "flex-start",
+                position: "relative",
+                overflow: "hidden",
+                width: "100%",
+                background: "transparent",
+                boxShadow: "none",
+                zIndex: (theme) => theme.zIndex.appBar,
+                "&::before": {
+                  content: '""',
+                  position: "absolute",
+                  top: "-10%",
+                  left: "-10%",
+                  width: "120%",
+                  height: "120%",
+                  backgroundImage: 'url("/homeBg1.png")',
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                  filter: "blur(8px)",
+                  transform: "scale(1.1)",
+                  zIndex: -2,
+                  pointerEvents: "none",
+                },
+                "&::after": {
+                  content: '""',
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  bottom: 0,
+                  background: "rgba(0, 0, 0, 0.3)", // optional overlay
+                  zIndex: -1,
+                  pointerEvents: "none",
+                },
               }}
             >
               <Toolbar>
@@ -275,18 +295,19 @@ export default function Home() {
             </Drawer>
 
             {/* Lazy-loaded Sections */}
-            <Suspense fallback={<SectionSkeleton />}>
-              <Home1 isMobile={isMobile} />
-              <Aboutus />
-              <Programs />
-              <AfterNews />
-              <AfterNews1 />
-              <Actions />
-              <Donation />
-              <ContactPage />
-            </Suspense>
-
-            <Footer  />
+            <Box sx={{ paddingTop: "0%" }}>
+              <Suspense fallback={<SectionSkeleton />}>
+                <Home1 isMobile={isMobile} />
+                <Aboutus />
+                <Programs />
+                <AfterNews />
+                <AfterNews1 />
+                <Actions />
+                <Donation />
+                <ContactPage />
+                <Footer />
+              </Suspense>
+            </Box>
           </Box>
         )}
       </div>

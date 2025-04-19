@@ -1,9 +1,10 @@
-"use client";
+// "use client";
 import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { List, ListItem, ListItemText } from "@mui/material";
 import axios from "axios";
 import Link from "next/link";
+import { ArrowLeftIcon, ArrowRightIcon } from "@radix-ui/react-icons";
 
 function Aboutus() {
   const homeRef = useRef<HTMLElement>(null);
@@ -22,13 +23,20 @@ function Aboutus() {
   const startIndex = (page - 1) * articlesPerPage;
   const endIndex = startIndex + articlesPerPage;
   const visibleArticles = articles.slice(startIndex, endIndex);
+  console.log({ visibleArticles });
+  const [expandedCards, setExpandedCards] = useState<number[]>([]);
 
+  const toggleCard = (index: number) => {
+    setExpandedCards((prev) =>
+      prev.includes(index) ? prev.filter((i) => i !== index) : [...prev, index]
+    );
+  };
   useEffect(() => {
     const getNews = async () => {
       const data = await axios.get(
-        "https://newsapi.org/v2/everything?q=Plantation&from=2025-03-15&sortBy=popularity&apiKey=644e8c30e0674daaa3323c3c97161ae8"
+        "https://newsapi.org/v2/everything?q=Plantation&from=2025-04-15&sortBy=popularity&apiKey=644e8c30e0674daaa3323c3c97161ae8"
       );
-      console.log({ data });
+      console.log({ data }, "ihhgihbknkjn");
 
       setArticles(data?.data?.articles);
     };
@@ -46,11 +54,11 @@ function Aboutus() {
 
   return (
     <>
-      <div className="gradient-background">
-        <div className="px-20">
+      <div className="gradient-background min-h-screen">
+        <div className="px-10">
           <List
             sx={{ display: "flex", flexDirection: "row" }}
-            className="mb-4 -mt-10 -gap-4"
+            className="mb-4 mt-2 gap-4"
           >
             {navOptions.map((item: any, index: number) => (
               <ListItem
@@ -210,53 +218,89 @@ function Aboutus() {
               <h1 className="text-left mb-4 text-success">
                 Latest News & Stories
               </h1>
-
-              <div className="row">
-                {visibleArticles.map((article, index) => (
-                  <div key={index} className="col-md-4 mb-4">
-                    <div className="card">
-                      <img
-                        src={
-                          article?.urlToImage ||
-                          "https://via.placeholder.com/150"
-                        }
-                        className="card-img-top"
-                        alt={article?.title}
-                      />
-                      <div className="card-body">
-                        <h5 className="card-title">{article?.title}</h5>
-                        <p className="card-text">{article?.description}</p>
-                        <Link href={article?.url} legacyBehavior>
-                          <a
-                            className="btn btn-primary"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            Read more
-                          </a>
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              {/* Pagination Controls */}
-              <div className="d-flex justify-content-between mt-4">
+              <div className="flex justify-end mt-4 gap-2 mb-2">
                 <button
-                  className="btn btn-secondary"
+                  className={`flex ${
+                    page === 1 ? "bg-gray-500" : "bg-[#005632]"
+                  } items-center justify-center rounded-full p-2`}
                   onClick={() => setPage(page - 1)}
                   disabled={page === 1}
                 >
-                  Previous Page
+                  <ArrowLeftIcon color={page === 1 ? "black" : "white"} />
                 </button>
+
                 <button
-                  className="btn btn-secondary"
+                  className="flex bg-[#005632] items-center justify-center rounded-full p-2"
                   onClick={() => setPage(page + 1)}
                   disabled={endIndex >= articles.length}
                 >
-                  Next Page
+                  <ArrowRightIcon color="white" />
                 </button>
+              </div>
+              <div className="row">
+                {visibleArticles.map((article: any, index: number) => {
+                  const isExpanded = expandedCards.includes(index);
+                  return (
+                    <div key={index} className="col-md-4 mb-4">
+                      <div
+                        className={`card w-[300px] transition-all duration-300 ${
+                          isExpanded ? "h-auto" : "h-[420px]"
+                        } overflow-hidden`}
+                      >
+                        {/* Image */}
+                        <img
+                          src={
+                            article?.urlToImage ||
+                            "https://via.placeholder.com/150"
+                          }
+                          className="w-full h-[180px] object-cover"
+                          alt={article?.title}
+                        />
+
+                        {/* Title & Description */}
+                        <div className="p-4">
+                          <h3 className="text-lg font-semibold">
+                            {article.title}
+                          </h3>
+                          <p className="text-sm text-gray-700">
+                            {isExpanded
+                              ? article.description
+                              : `${article.description?.slice(0, 100)}...`}
+                          </p>
+                          {!isExpanded && (
+                            <button
+                              onClick={() => toggleCard(index)}
+                              className="text-green-800 text-xs font-medium mt-1"
+                            >
+                              ...read more
+                            </button>
+                          )}
+
+                          {/* Read more link */}
+                          {isExpanded && (
+                            <div className="flex justify-center gap-4 mt-3">
+                              <a
+                                href={article?.url}
+                                className="text-green-800 text-sm font-semibold inline-flex items-center gap-1 hover:underline"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                              >
+                                Read Full Article <span>&rarr;</span>
+                              </a>
+                              <button
+                                className="btn btn-secondary mt-2"
+                                onClick={() => toggleCard(index)}
+                              >
+                                {isExpanded ? "Collapse" : "Expand"}
+                              </button>{" "}
+                            </div>
+                          )}
+
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
             </div>
           </div>
