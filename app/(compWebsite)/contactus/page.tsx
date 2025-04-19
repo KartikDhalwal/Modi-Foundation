@@ -1,4 +1,5 @@
 import ContactForm from "@/app/components/ContactForm";
+import Image from "next/image";
 
 export default function ContactPage() {
   return (
@@ -6,10 +7,10 @@ export default function ContactPage() {
       <h1 className="text-4xl font-bold text-blue-900 mb-4">CONTACT US</h1>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
         <div className="col-span-1 flex flex-col items-center">
-          <div className="text-vertical uppercase text-gray-400 font-bold tracking-widest text-2xl transform -rotate-90">
+          <div className="text-left uppercase text-gray-400 font-bold tracking-widest text-2xl transform -rotate-90">
             Donate Now
           </div>
-          <img src="/birds.png" alt="Birds" className="w-48 mt-8" />
+          <Image src="/birdsImage.PNG" width={100} height={100} alt="Birds" className="w-48  -ml-48" />
         </div>
         <div className="col-span-2">
           <ContactForm />

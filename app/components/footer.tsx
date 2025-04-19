@@ -7,6 +7,9 @@ import { useMediaQuery } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { GrFacebook } from "react-icons/gr";
+import { FaFacebookF, FaInstagram, FaYoutube } from "react-icons/fa";
+import { IoIosCall } from "react-icons/io";
 
 export default function Footer({
 }: {
@@ -35,8 +38,8 @@ export default function Footer({
           gap={2}
         >
           <Box display="flex" alignItems="center" gap={1}>
-            <span style={{ fontSize: "18px" }}>📞</span>
-            <span>Call us for Enquiry : (+91) 1800 1880 1880</span>
+            <span style={{ fontSize: "18px" }}><IoIosCall /></span>
+            <span>Call us for Enquiry : (+91) 70731 83163</span>
           </Box>
           <Box display="flex" alignItems="center" gap={1}>
             <span style={{ fontSize: "16px" }}>✉️</span>
@@ -45,15 +48,15 @@ export default function Footer({
         </Box>
 
         {/* Social Icons */}
-        <Box display="flex" justifyContent="center" mt={2} gap={3}>
-          <a href="#" aria-label="Facebook" style={{ color: "#000" }}>
-            🟢
+        <Box display="flex" justifyContent="center" border={1} padding={3} mt={2} gap={3}>
+          <a href="#" aria-label="Facebook" className="flex bg-[#005632] items-center justify-center rounded-full p-2">
+          <FaFacebookF color="white"  />
           </a>
-          <a href="#" aria-label="Instagram" style={{ color: "#000" }}>
-            📸
+          <a href="#" aria-label="Instagram" className="flex bg-[#005632] items-center justify-center rounded-full p-2">
+          <FaInstagram color="white" />
           </a>
-          <a href="#" aria-label="YouTube" style={{ color: "#000" }}>
-            ▶️
+          <a href="#" aria-label="YouTube" className="flex bg-[#005632] items-center justify-center rounded-full p-2">
+          <FaYoutube color="white" />
           </a>
         </Box>
 

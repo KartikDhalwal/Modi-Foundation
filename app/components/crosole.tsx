@@ -1,10 +1,8 @@
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { Carousel } from "react-responsive-carousel";
 import Image from "next/image";
-import { useState } from "react";
 import { ArrowRightIcon } from "@radix-ui/react-icons";
 
-const Carousel1 = ({ isMobile  }) => {
+const Carousel1 = ({ isMobile }: { isMobile: boolean }) => {
   const images = [
     {
       src: "/homeBg1.png",
@@ -18,12 +16,6 @@ const Carousel1 = ({ isMobile  }) => {
   return (
     <div className="h-auto w-auto">
       {!isMobile ? (
-        // <Carousel
-        //   infiniteLoop
-        //   interval={3000}
-        //   showThumbs={false}
-        //   showStatus={false}
-        // >
         <>
           {images.map((image, index) => (
             <div
@@ -71,7 +63,6 @@ const Carousel1 = ({ isMobile  }) => {
           
           ))}
           </>
-        // </Carousel>
       ) : (
         <div
           className="grid grid-cols-12 gap-2 lg:gap-6 px-2 md:px-4 h-[650px] lg:h-[650px] xl:h-[750px]"

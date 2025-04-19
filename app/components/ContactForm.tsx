@@ -1,7 +1,6 @@
-'use client'
-
+"use client";
 import { useState } from "react";
-
+import Select from "react-select";
 export default function ContactForm() {
   const [formData, setFormData] = useState({
     name: "",
@@ -13,77 +12,140 @@ export default function ContactForm() {
     message: "",
   });
 
-  const handleChange = (e: any) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+  const handleChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | { name?: string; value: unknown }
+    >
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name!]: value }));
   };
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
     console.log("Submitted:", formData);
   };
-
+  const options = [
+    { value: "chocolate", label: "Chocolate" },
+    { value: "strawberry", label: "Strawberry" },
+    { value: "vanilla", label: "Vanilla" },
+  ];
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
+    <form onSubmit={handleSubmit} className="p-4 max-w-3xl mx-auto space-y-4">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <input
-          type="text"
-          name="name"
-          placeholder="Enter your name..."
-          className="input-style"
-          onChange={handleChange}
-        />
-        <input
-          type="email"
-          name="email"
-          placeholder="Your email address..."
-          className="input-style"
-          onChange={handleChange}
-        />
-        <input
-          type="tel"
-          name="phone"
-          placeholder="Enter phone number..."
-          className="input-style"
-          onChange={handleChange}
-        />
-        <select
-          name="enquiryType"
-          className="input-style"
-          onChange={handleChange}
-        >
-          <option>Your concern</option>
-          <option>Feedback</option>
-          <option>Support</option>
-          <option>Partnership</option>
-        </select>
-        <select
-          name="reason"
-          className="input-style"
-          onChange={handleChange}
-        >
-          <option>Enter reason...</option>
-          <option>Donation</option>
-          <option>Volunteer</option>
-          <option>Other</option>
-        </select>
-        <input
-          type="text"
-          name="subject"
-          placeholder="Enter subject..."
-          className="input-style"
-          onChange={handleChange}
-        />
+        <div className="flex flex-col mb-4">
+          <label
+            htmlFor="name"
+            className="mb-1 text-sm font-medium text-gray-700"
+          >
+            Name
+          </label>
+          <input
+            id="name"
+            type="text"
+            name="name"
+            placeholder="Enter your name..."
+            className="input-style rounded p-2 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-black"
+            value={formData.name}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="flex flex-col mb-4">
+          <label
+            htmlFor="name"
+            className="mb-1 text-sm font-medium text-gray-700"
+          >
+            E-Mail
+          </label>
+          <input
+            type="email"
+            name="email"
+            placeholder="Your email address..."
+            className="input-style rounded p-2 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-black"
+            onChange={handleChange}
+            value={formData.email}
+          />
+        </div>
+        <div className="flex flex-col mb-4">
+          <label
+            htmlFor="name"
+            className="mb-1 text-sm font-medium text-gray-700"
+          >
+            Phone Number
+          </label>
+          <input
+            type="number"
+            name="phone"
+            placeholder="Enter phone number..."
+            className="input-style rounded p-2 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-black"
+            onChange={handleChange}
+            value={formData?.phone}
+          />
+        </div>
+        <div className="flex flex-col mb-4">
+          <label
+            htmlFor="name"
+            className="mb-1 text-sm font-medium text-gray-700"
+          >
+            Enquiry Type
+          </label>
+          <Select
+            name="enquiryType"
+            value={formData.enquiryType}
+            onChange={handleChange}
+            className="input-style"
+            option={options}
+          />
+        </div>
+        <div className="flex flex-col mb-4">
+          <label
+            htmlFor="name"
+            className="mb-1 text-sm font-medium text-gray-700"
+          >
+            Reason
+          </label>
+          <Select
+            name="reason"
+            value={formData.reason}
+            onChange={handleChange}
+            className="input-style"
+            option={options}
+          />
+        </div>
+        <div className="flex flex-col mb-4">
+          <label
+            htmlFor="name"
+            className="mb-1 text-sm font-medium text-gray-700"
+          >
+            Subject
+          </label>
+          <input
+            type="text"
+            name="subject"
+            placeholder="Enter subject..."
+            className="input-style rounded p-2 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-black"
+            onChange={handleChange}
+            value={formData?.subject}
+          />
+        </div>
       </div>
-
-      <textarea
-        name="message"
-        placeholder="Please provide details regarding your inquiry or feedback..."
-        className="input-style h-32"
-        onChange={handleChange}
-      ></textarea>
-
+      <div className="flex flex-col mb-4">
+        <label
+          htmlFor="name"
+          className="mb-1 text-sm font-medium text-gray-700"
+        >
+          Description
+        </label>
+        <textarea
+          name="message"
+          placeholder="Please provide details regarding your inquiry or feedback..."
+          className="input-style rounded p-2 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-black"
+          onChange={handleChange}
+        ></textarea>
+      </div>
       <p className="text-sm text-gray-600">
-        We appreciate you reaching out to us and will get back to you as soon as possible.
+        We appreciate you reaching out to us and will get back to you as soon as
+        possible.
       </p>
 
       <button

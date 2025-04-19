@@ -34,10 +34,8 @@ function Aboutus() {
   useEffect(() => {
     const getNews = async () => {
       const data = await axios.get(
-        "https://newsapi.org/v2/everything?q=Plantation&from=2025-04-15&sortBy=popularity&apiKey=644e8c30e0674daaa3323c3c97161ae8"
+        "https://newsapi.org/v2/everything?q=Plantation&from=2025-04-17&sortBy=popularity&apiKey=644e8c30e0674daaa3323c3c97161ae8"
       );
-      console.log({ data }, "ihhgihbknkjn");
-
       setArticles(data?.data?.articles);
     };
     getNews();

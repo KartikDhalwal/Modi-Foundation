@@ -11,6 +11,7 @@
   "dependencies": {
     "@emotion/react": "^11.13.3",
     "@emotion/styled": "^11.13.0",
+    "@heroui/input": "^2.4.17",
     "@mui/icons-material": "^6.1.6",
     "@mui/material": "^6.1.6",
     "@radix-ui/react-dialog": "^1.1.2",
@@ -36,6 +37,7 @@
     "react-loading-skeleton": "^3.5.0",
     "react-rating": "^2.0.5",
     "react-responsive-carousel": "^3.2.23",
+    "react-select": "^5.10.1",
     "reactflow": "^11.11.4",
     "sweetalert2": "^11.14.5",
     "tailwind-merge": "^3.0.2",

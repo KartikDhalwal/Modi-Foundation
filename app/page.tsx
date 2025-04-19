@@ -51,7 +51,7 @@ const ContactPage = dynamic(() => import("./(compWebsite)/contactus/page"), {
 export default function Home() {
   const { scrollYProgress } = useScroll();
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const isMobile : boolean = useMediaQuery(theme.breakpoints.down("sm"));
 
   const sectionRefs = {
     home: useRef<HTMLElement>(null),
@@ -166,60 +166,7 @@ export default function Home() {
             <LoadingScreen />
           </div>
         ) : (
-          <Box display="flex" flexDirection="column" height="1000vh">
-            <AppBar
-              position="fixed"
-              color="transparent"
-              elevation={0}
-              sx={{
-                position: "relative",
-                overflow: "hidden",
-                width: "100%",
-                background: "transparent",
-                boxShadow: "none",
-                zIndex: (theme) => theme.zIndex.appBar,
-                "&::before": {
-                  content: '""',
-                  position: "absolute",
-                  top: "-10%",
-                  left: "-10%",
-                  width: "120%",
-                  height: "120%",
-                  backgroundImage: 'url("/homeBg1.png")',
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
-                  filter: "blur(8px)",
-                  transform: "scale(1.1)",
-                  zIndex: -2,
-                  pointerEvents: "none",
-                },
-                "&::after": {
-                  content: '""',
-                  position: "absolute",
-                  top: 0,
-                  left: 0,
-                  right: 0,
-                  bottom: 0,
-                  background: "rgba(0, 0, 0, 0.3)", // optional overlay
-                  zIndex: -1,
-                  pointerEvents: "none",
-                },
-              }}
-            >
-              <Toolbar>
-                <IconButton
-                  edge="start"
-                  onClick={() => setDrawerOpen(true)}
-                  sx={{ color: "white" }}
-                >
-                  <MenuIcon />
-                </IconButton>
-                <IconButton edge="end" sx={{ ml: "auto", color: "white" }}>
-                  <LuBellDot />
-                </IconButton>
-              </Toolbar>
-            </AppBar>
-
+          <Box display="flex" flexDirection="column">
             <Drawer
               anchor="top"
               open={drawerOpen}
@@ -293,9 +240,7 @@ export default function Home() {
                 ))}
               </List>
             </Drawer>
-
-            {/* Lazy-loaded Sections */}
-            <Box sx={{ paddingTop: "0%" }}>
+            <Box>
               <Suspense fallback={<SectionSkeleton />}>
                 <Home1 isMobile={isMobile} />
                 <Aboutus />
@@ -305,7 +250,6 @@ export default function Home() {
                 <Actions />
                 <Donation />
                 <ContactPage />
-                <Footer />
               </Suspense>
             </Box>
           </Box>
