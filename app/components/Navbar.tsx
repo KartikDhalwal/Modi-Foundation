@@ -13,28 +13,21 @@ import {
 import MenuIcon from "@mui/icons-material/Menu";
 import { LuBellDot } from "react-icons/lu";
 import { useState } from "react";
+import { useRouter } from 'next/navigation';
 
 const navOptions = [
-  { label: "Home", id: "home" },
+  { label: "Home", id: "home1" },
   { label: "About Us", id: "about" },
   { label: "Programs", id: "programs" },
   { label: "Actions", id: "actions" },
   { label: "Donation", id: "donation" },
   { label: "Contact Us", id: "contactUs" },
-  {
-    label: "Get Involved",
-    id: "getInvolved",
-    children: [
-      { label: "Our Work" },
-      { label: "How to Join" },
-      { label: "More Ways to Give" },
-    ],
-  },
 ];
 
 export default function NavBar() {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
+  const router = useRouter();
 
   return (
     <AppBar
@@ -143,6 +136,9 @@ export default function NavBar() {
               }}
               onMouseEnter={() => setHoveredItem(item.id)}
               onMouseLeave={() => setHoveredItem(null)}
+              onClick={() => router.push(`/${item.id}`)}
+
+
             >
               <ListItemText primary={item.label} />
               {item.children && (

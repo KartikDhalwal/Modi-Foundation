@@ -54,8 +54,8 @@ const Carousel1 = ({ isMobile }: { isMobile: boolean }) => {
                 {image.text3}
               </div>
               <div className="text-[white] text-[12px] md:text-[14px] lg:text-[20px] mt-4 ml-16 text-right font-bold">
-               <button className="border-2 p-2">
-                DONATE NOW <ArrowRightIcon/> 
+               <button className="flex border-2 p-2">
+                DONATE NOW <ArrowRightIcon className="mt-2 ml-2" /> 
                </button>
               </div>
             </div>
