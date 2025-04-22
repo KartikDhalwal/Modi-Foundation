@@ -24,7 +24,7 @@ const ActionsItems = [
 function Actions() {
   return (
     <div className=" p-6 text-center border-black max-w-7xl mx-auto -mt-28">
-      <h2 className="text-3xl md:text-4xl font-bold font-josefin text-black mb-10">
+      <h2 className="text-3xl md:text-4xl font-bold font-josefin text-black mt-24">
         Small Actions Grow Big Impact
       </h2>
 

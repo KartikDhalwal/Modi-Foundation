@@ -243,7 +243,7 @@ export default function Home() {
             <Box>
               <Suspense fallback={<SectionSkeleton />}>
                 <Home1 isMobile={isMobile} />
-                <Aboutus />
+                <Aboutus isMobile={isMobile}/>
                 <Programs />
                 <AfterNews />
                 <AfterNews1 />

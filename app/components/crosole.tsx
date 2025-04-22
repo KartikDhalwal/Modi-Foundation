@@ -12,10 +12,11 @@ const Carousel1 = ({ isMobile }: { isMobile: boolean }) => {
       text3: "Your Sustainable Living = a Ecosystem’s Balance ",
     },
   ];
+let responsive = isMobile
 
   return (
     <div className="h-auto w-auto">
-      {!isMobile ? (
+      {!responsive ? (
         <>
           {images.map((image, index) => (
             <div
@@ -82,6 +83,11 @@ const Carousel1 = ({ isMobile }: { isMobile: boolean }) => {
             <div className="text-[#00FF51] text-[12px] md:text-[14px] lg:text-[25px]">
               {images[0].text3}
             </div>
+            <div className="text-[white] text-[12px] md:text-[14px] lg:text-[20px] mt-4 ml-16 text-right font-bold">
+               <button className="flex border-2 p-2 items-center justify-center ml-12">
+                DONATE NOW <ArrowRightIcon className="mt-0 ml-2" /> 
+               </button>
+              </div>
           </div>
         </div>
       )}

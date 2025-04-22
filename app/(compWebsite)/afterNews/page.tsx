@@ -13,7 +13,7 @@ function AfterNews() {
           className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 
         flex flex-col items-center justify-center 
         bg-white/50 text-black 
-        p-6 rounded-lg w-[90%] md:w-[70%] lg:w-[80%] lg:h-[70%]
+        p-6 rounded-lg w-[90%] md:w-[70%] lg:w-[80%] lg:h-[50%]
         transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-2xl"
         >
           <h2 className="text-2xl md:text-4xl text-center font-dubai font-semibold mb-4">
@@ -41,7 +41,7 @@ function AfterNews() {
         </div>
 
         {/* Grid of Images */}
-        <div className="grid grid-cols-1 md:grid-cols-2">
+        <div className="grid grid-cols-1 lg:grid-cols-2">
           <div className="p-2">
             <Image
               src={"/afterNews1.svg"}
