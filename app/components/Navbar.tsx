@@ -9,11 +9,13 @@ import {
   ListItem,
   ListItemText,
   Box,
+  useTheme,
+  useMediaQuery,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import { LuBellDot } from "react-icons/lu";
 import { useState } from "react";
-import { useRouter } from 'next/navigation';
+import { useRouter } from "next/navigation";
 
 const navOptions = [
   { label: "Home", id: "home1" },
@@ -28,7 +30,8 @@ export default function NavBar() {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
   const router = useRouter();
-
+const theme = useTheme();
+const isMobile: boolean = useMediaQuery(theme.breakpoints.down("sm"));
   return (
     <AppBar
       position="fixed"
@@ -81,44 +84,90 @@ export default function NavBar() {
           <LuBellDot />
         </IconButton>
       </Toolbar>
-
-      <Drawer
-        anchor="top"
-        open={drawerOpen}
-        onClose={() => setDrawerOpen(false)}
-        ModalProps={{
-          keepMounted: true,
-          sx: {
-            backdropFilter: "blur(5px)",
-            backgroundColor: "rgba(0, 0, 0, 0.3)",
-          },
-        }}
-        PaperProps={{
-          sx: {
-            backgroundColor: "rgba(0, 0, 0, 0.2)",
-            boxShadow: "none",
-          },
-        }}
-      >
-        <List
-          sx={{
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "center",
-            padding: "1px",
-            gap: "10px",
-            position: "relative",
+      {isMobile ? (
+        <Drawer
+          anchor="top"
+          open={drawerOpen}
+          onClose={() => setDrawerOpen(false)}
+          ModalProps={{
+            keepMounted: true,
+            sx: {
+              backdropFilter: "blur(5px)",
+              backgroundColor: "rgba(0, 0, 0, 0.3)",
+            },
+          }}
+          PaperProps={{
+            sx: {
+              backgroundColor: "rgba(0, 0, 0, 0.2)",
+              boxShadow: "none",
+            },
           }}
         >
-          {navOptions.map((item, index) => (
-            <ListItem
-              key={index}
-              sx={{
-                flexDirection: "column",
-                alignItems: "center",
-                color: "white",
-                position: "relative",
-                cursor: "pointer",
+          <List
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              padding: "10px",
+              gap: "10px",
+            }}
+          >
+            {navOptions.map((item, index) => (
+              <ListItem
+                button
+                key={index}
+                onClick={() => {
+                  router.push(`/${item.id}`);
+                  setDrawerOpen(false);
+                }}
+                sx={{
+                  justifyContent: "center",
+                  color: "white",
+                }}
+              >
+                <ListItemText primary={item.label} />
+              </ListItem>
+            ))}
+          </List>
+        </Drawer>
+      ) : (
+        <Drawer
+          anchor="top"
+          open={drawerOpen}
+          onClose={() => setDrawerOpen(false)}
+          ModalProps={{
+            keepMounted: true,
+            sx: {
+              backdropFilter: "blur(5px)",
+              backgroundColor: "rgba(0, 0, 0, 0.3)",
+            },
+          }}
+          PaperProps={{
+            sx: {
+              backgroundColor: "rgba(0, 0, 0, 0.2)",
+              boxShadow: "none",
+            },
+          }}
+        >
+          <List
+            sx={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "center",
+              padding: "1px",
+              gap: "10px",
+              position: "relative",
+            }}
+          >
+            {navOptions.map((item, index) => (
+              <ListItem
+                key={index}
+                sx={{
+                  flexDirection: "column",
+                  alignItems: "center",
+                  color: "white",
+                  position: "relative",
+                  cursor: "pointer",
                   "&::after": {
                     content: '""',
                     position: "absolute",
@@ -133,43 +182,42 @@ export default function NavBar() {
                   "&:hover::after": {
                     width: "100%",
                   },
-              }}
-              onMouseEnter={() => setHoveredItem(item.id)}
-              onMouseLeave={() => setHoveredItem(null)}
-              onClick={() => router.push(`/${item.id}`)}
-
-
-            >
-              <ListItemText primary={item.label} />
-              {item.children && (
-                <List
-                  className="submenu"
-                  sx={{
-                    display: hoveredItem === item.id ? "flex" : "none",
-                    flexDirection: "column",
-                    position: "absolute",
-                    top: "100%",
-                    zIndex: 1,
-                    backgroundColor: "rgba(0,0,0,0.8)",
-                    padding: "10px",
-                    borderRadius: "4px",
-                    minWidth: "150px",
-                  }}
-                >
-                  {item.children.map((child, i) => (
-                    <ListItem
-                      key={i}
-                      sx={{ color: "white", padding: "5px 10px" }}
-                    >
-                      {child.label}
-                    </ListItem>
-                  ))}
-                </List>
-              )}
-            </ListItem>
-          ))}
-        </List>
-      </Drawer>
+                }}
+                onMouseEnter={() => setHoveredItem(item.id)}
+                onMouseLeave={() => setHoveredItem(null)}
+                onClick={() => router.push(`/${item.id}`)}
+              >
+                <ListItemText primary={item.label} />
+                {item.children && (
+                  <List
+                    className="submenu"
+                    sx={{
+                      display: hoveredItem === item.id ? "flex" : "none",
+                      flexDirection: "column",
+                      position: "absolute",
+                      top: "100%",
+                      zIndex: 1,
+                      backgroundColor: "rgba(0,0,0,0.8)",
+                      padding: "10px",
+                      borderRadius: "4px",
+                      minWidth: "150px",
+                    }}
+                  >
+                    {item.children.map((child, i) => (
+                      <ListItem
+                        key={i}
+                        sx={{ color: "white", padding: "5px 10px" }}
+                      >
+                        {child.label}
+                      </ListItem>
+                    ))}
+                  </List>
+                )}
+              </ListItem>
+            ))}
+          </List>
+        </Drawer>
+      )}
     </AppBar>
   );
 }
