@@ -5,8 +5,10 @@ import { List, ListItem, ListItemText } from "@mui/material";
 import axios from "axios";
 import Link from "next/link";
 import { ArrowLeftIcon, ArrowRightIcon } from "@radix-ui/react-icons";
+import { useRouter } from "next/navigation";
 
 function Aboutus(isMobile) {
+  const router = useRouter();
   let responsive = isMobile?.isMobile;
   const homeRef = useRef<HTMLElement>(null);
   const aboutRef = useRef<HTMLElement>(null);
@@ -46,7 +48,7 @@ function Aboutus(isMobile) {
     getNews();
   }, []);
   const navOptions = [
-    { label: "About Us", ref: aboutRef, id: "about" },
+    { label: "About Us", ref: aboutRef, id: "about", path:'whoWeAre' },
     { label: "Our Initiatives", ref: homeRef, id: "home" },
     { label: "Programs", ref: productsRef, id: "products" },
     { label: "Volunteer", ref: homeRef, id: "mission" },
@@ -101,6 +103,7 @@ function Aboutus(isMobile) {
                 <ListItemText
                   primary={item.label}
                   className="text-[#00620B] font-extrabold"
+                  onClick={() =>router.push(`/${item?.path}`)}
                 />
               </ListItem>
             ))}

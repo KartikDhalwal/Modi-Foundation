@@ -7,9 +7,8 @@ export async function POST(req: NextRequest) {
     const data = await req.json();
 
     const client = await clientPromise;
-    const db = client.db(); // use default DB or specify like db('your-db-name')
-   console.log({db})
-    const collection = db.collection("contacts");
+    const db = client.db(); 
+    const collection = db.collection("donators");
 
     const result = await collection.insertOne(data);
 

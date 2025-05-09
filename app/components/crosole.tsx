@@ -1,8 +1,10 @@
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import Image from "next/image";
 import { ArrowRightIcon } from "@radix-ui/react-icons";
+import { useRouter } from "next/navigation";
 
 const Carousel1 = ({ isMobile }: { isMobile: boolean }) => {
+  const router = useRouter();
   const images = [
     {
       src: "/homeBg1.png",
@@ -55,7 +57,7 @@ let responsive = isMobile
                 {image.text3}
               </div>
               <div className="text-[white] text-[12px] md:text-[14px] lg:text-[20px] mt-4 ml-16 text-right font-bold">
-               <button className="flex border-2 p-2">
+               <button className="flex border-2 p-2" onClick={() => router.replace('/donation/donationForm')}>
                 DONATE NOW <ArrowRightIcon className="mt-2 ml-2" /> 
                </button>
               </div>

@@ -1,6 +1,29 @@
 "use client";
 import { useState } from "react";
 import Select from "react-select";
+import Swal from "sweetalert2";
+
+function showSideAlert(message : string, type: string) {
+  const Toast = Swal.mixin({
+    toast: true,
+    position: "top-end",
+    showConfirmButton: false,
+    timer: 5000,
+    timerProgressBar: true,
+    customClass: {
+      container: "side-alert-container",
+      popup: `side-alert-${type}`,
+      title: "side-alert-title",
+      icon: "side-alert-icon",
+    },
+  });
+
+  Toast.fire({
+    icon: type,
+    title: message,
+  });
+}
+
 export default function ContactForm() {
   const [formData, setFormData] = useState({
     name: "",
@@ -21,10 +44,39 @@ export default function ContactForm() {
     setFormData((prev) => ({ ...prev, [name!]: value }));
   };
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
-    console.log("Submitted:", formData);
+    try {
+      const response = await fetch("/api/SubmitContact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+  
+      const result = await response.json();
+  
+      if (result.success) {
+        showSideAlert("Form submitted successfully!",'success');
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          enquiryType: "",
+          reason: "",
+          subject: "",
+          message: "",
+        });
+      } else {
+        showSideAlert("Something went wrong.",'error');
+      }
+    } catch (err) {
+      console.error("Submit error:", err);
+      showSideAlert("Error submitting form.",'error');
+    }
   };
+  
   const options = [
     { value: "chocolate", label: "Chocolate" },
     { value: "strawberry", label: "Strawberry" },
@@ -141,6 +193,7 @@ export default function ContactForm() {
           placeholder="Please provide details regarding your inquiry or feedback..."
           className="input-style rounded p-2 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-black"
           onChange={handleChange}
+          value={formData?.message}
         ></textarea>
       </div>
       <p className="text-sm text-gray-600">
