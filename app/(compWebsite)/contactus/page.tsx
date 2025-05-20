@@ -10,7 +10,7 @@ export default function ContactPage() {
           <div className="text-left uppercase text-gray-400 font-bold tracking-widest text-2xl transform -rotate-90">
             Donate Now
           </div>
-          <Image src="/birdsImage.PNG" width={100} height={100} alt="Birds" className="w-48  -ml-48" />
+          <img src="/birdsImage.png" width={100} height={100} alt="Birds" className="w-48  -ml-48" />
         </div>
         <div className="col-span-2">
           <ContactForm />
