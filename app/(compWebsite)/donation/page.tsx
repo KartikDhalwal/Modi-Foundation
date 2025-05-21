@@ -1,8 +1,10 @@
 "use client";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import React from "react";
 
 function Donation() {
+  const router = useRouter()
   return (
     <div
       className="relative w-auto h-auto flex items-center justify-center text-white p-4 sm:p-2 md:p-12 lg:p-2 xl:p-36 lg:m-12 sm:m-2 mb-2"
@@ -33,7 +35,7 @@ function Donation() {
           </div>
         </div>
 
-        <button className="mt-4 px-6 sm:px-8 py-2 sm:py-3 text-white font-semibold border border-white bg-transparent hover:bg-white hover:text-black hover:scale-105 transition-all duration-300 ease-in-out">
+        <button onClick={() => router.push('/donation/donationForm')} className="mt-4 px-6 sm:px-8 py-2 sm:py-3 text-white font-semibold border border-white bg-transparent hover:bg-white hover:text-black hover:scale-105 transition-all duration-300 ease-in-out">
           DONATE NOW
         </button>
       </div>

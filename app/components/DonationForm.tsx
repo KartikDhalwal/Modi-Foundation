@@ -34,13 +34,22 @@ export default function DonationForm() {
     panNo: "",
     tncCheck: "",
   });
-
+  const [panError, setPanError] = useState("");
+  const panRegex = /^[A-Z]{5}[0-9]{4}[A-Z]{1}$/;
   const handleChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLTextAreaElement | { name?: string; value: unknown }
     >
   ) => {
     const { name, value } = e.target;
+    if (name === "panNo") {
+      const upperValue = value.toUpperCase();
+      if (!panRegex.test(upperValue)) {
+        setPanError("Invalid PAN format (e.g., ABCDE1234F)");
+      } else {
+        setPanError("");
+      }
+    }
     setFormData((prev) => ({ ...prev, [name!]: value }));
   };
 
@@ -180,10 +189,14 @@ export default function DonationForm() {
             type="text"
             name="panNo"
             placeholder="Your PAN Card..."
-            className="input-style rounded p-2 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-black"
+            className={`input-style rounded p-2 border ${
+              panError ? "border-red-500" : "border-gray-300"
+            } focus:outline-none focus:ring-2 focus:ring-black`}
             onChange={handleChange}
-            value={formData?.panNo}
+            value={formData.panNo}
+            maxLength={10}
           />
+          {panError && <p className="text-red-500 text-sm mt-1">{panError}</p>}
         </div>
       </div>
       <p className="text-sm text-gray-600">
