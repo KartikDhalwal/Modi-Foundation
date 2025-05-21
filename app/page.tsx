@@ -44,28 +44,23 @@ const Actions = dynamic(() => import("./(compWebsite)/actions/page"), {
 const Donation = dynamic(() => import("./(compWebsite)/donation/page"), {
   suspense: true,
 });
-const ContactPage = dynamic(() => import("./(compWebsite)/contactus/page"), {
+const ContactPage = dynamic(() => import("./(compWebsite)/contactUs/page"), {
   suspense: true,
 });
 
 export default function Home() {
   const { scrollYProgress } = useScroll();
   const theme = useTheme();
-  const isMobile : boolean = useMediaQuery(theme.breakpoints.down("sm"));
+  const isMobile: boolean = useMediaQuery(theme.breakpoints.down("sm"));
 
   const sectionRefs = {
     home: useRef<HTMLElement>(null),
     about: useRef<HTMLElement>(null),
-    products: useRef<HTMLElement>(null),
     services: useRef<HTMLElement>(null),
     programs: useRef<HTMLElement>(null),
     contactUs: useRef<HTMLElement>(null),
     donation: useRef<HTMLElement>(null),
-    actions: useRef<HTMLElement>(null),
     portfolio: useRef<HTMLElement>(null),
-    Whyautovyn: useRef<HTMLElement>(null),
-    Team: useRef<HTMLElement>(null),
-    Privacy: useRef<HTMLElement>(null),
   };
 
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -86,50 +81,10 @@ export default function Home() {
   const navOptions = [
     { label: "Home", ref: sectionRefs.home, id: "home" },
     { label: "About Us", ref: sectionRefs.about, id: "about" },
-    { label: "Products", ref: sectionRefs.products, id: "products" },
     { label: "Resources", ref: sectionRefs.services, id: "services" },
     { label: "Programs", ref: sectionRefs.programs, id: "programs" },
-    { label: "Actions", ref: sectionRefs.actions, id: "actions" },
     { label: "Donation", ref: sectionRefs.donation, id: "donation" },
-    { label: "Contact Us", ref: sectionRefs.contactUs, id: "contactUs" },
-    {
-      label: "Get Involved",
-      ref: sectionRefs.portfolio,
-      id: "portfolio",
-      children: [
-        { label: "Our Work", ref: sectionRefs.Whyautovyn, id: "Whyautovyn" },
-        { label: "How to Join", ref: sectionRefs.Whyautovyn, id: "Whyautovyn" },
-        {
-          label: "More Ways to give",
-          ref: sectionRefs.Whyautovyn,
-          id: "Whyautovyn",
-        },
-        {
-          label: "Action Funds",
-          ref: sectionRefs.Whyautovyn,
-          id: "Whyautovyn",
-        },
-        { label: "Events", ref: sectionRefs.Whyautovyn, id: "Whyautovyn" },
-      ],
-    },
-    {
-      label: "Help",
-      ref: sectionRefs.Whyautovyn,
-      id: "Whyautovyn",
-      children: [
-        { label: "Privacy policy", ref: sectionRefs.Privacy, id: "Privacy" },
-        {
-          label: "Conservation policy",
-          ref: sectionRefs.Whyautovyn,
-          id: "Whyautovyn",
-        },
-        {
-          label: "Environmental Justice",
-          ref: sectionRefs.Whyautovyn,
-          id: "Whyautovyn",
-        },
-      ],
-    },
+    { label: "Contact Us", ref: sectionRefs.contactUs, id: "contactUs" }
   ];
 
   useEffect(() => {
@@ -155,11 +110,24 @@ export default function Home() {
       sectionElements.forEach((el) => el && observer.unobserve(el));
     };
   }, [navOptions]);
+
   const toggleDrawer = (open: boolean) => () => {
     setDrawerOpen(open);
   };
-  return (
+
+  const handleNavClick = (ref: React.RefObject<HTMLElement>) => {
+    // Close the drawer first
+    setDrawerOpen(false);
     
+    // Wait for the drawer to close before scrolling
+    setTimeout(() => {
+      if (ref.current) {
+        ref.current.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }, 300); // Adjust this timeout to match your drawer's closing animation duration
+  };
+
+  return (
     <div className="grid grid-cols-12 w-full">
       <div className="col-span-12">
         {isLoading ? (
@@ -207,6 +175,7 @@ export default function Home() {
                       position: "relative",
                       "&:hover .submenu": { display: "flex" },
                     }}
+                    onClick={() => handleNavClick(item.ref)}
                     onMouseEnter={() => setHoveredItem(item.id)}
                     onMouseLeave={() => setHoveredItem(null)}
                   >
@@ -230,7 +199,15 @@ export default function Home() {
                         {item.children.map((child, i) => (
                           <ListItem
                             key={i}
-                            sx={{ color: "white", padding: "5px 10px" }}
+                            sx={{
+                              color: "white",
+                              padding: "5px 10px",
+                              cursor: "pointer",
+                            }}
+                            onClick={(e) => {
+                              e.stopPropagation(); // Prevent event bubbling
+                              handleNavClick(child.ref);
+                            }}
                           >
                             {child.label}
                           </ListItem>
@@ -243,14 +220,24 @@ export default function Home() {
             </Drawer>
             <Box>
               <Suspense fallback={<SectionSkeleton />}>
-                <Home1 isMobile={isMobile}/>
-                <Aboutus isMobile={isMobile}/>
-                <Programs />
-                <AfterNews />
-                <AfterNews1 />
-                <Actions />
-                <Donation />
-                <ContactPage />
+                <section ref={sectionRefs.home} id="home">
+                  <Home1 isMobile={isMobile} />
+                </section>
+                <section ref={sectionRefs.about} id="about">
+                  <Aboutus isMobile={isMobile} />
+                </section>
+                <section ref={sectionRefs.programs} id="programs">
+                  <Programs />
+                </section>
+                <section ref={sectionRefs.actions} id="actions">
+                  <Actions />
+                </section>
+                <section ref={sectionRefs.donation} id="donation">
+                  <Donation />
+                </section>
+                <section ref={sectionRefs.contactUs} id="contactUs">
+                  <ContactPage />
+                </section>
               </Suspense>
             </Box>
           </Box>
