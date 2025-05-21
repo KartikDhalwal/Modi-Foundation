@@ -10,6 +10,10 @@ const nextConfig: NextConfig = {
   images: {
     domains: ['erp.autovyn.com'], // Add allowed domains here
   },
+   webpack: (config) => {
+    config.optimization.splitChunks = false
+    return config
+  }
 };
 
 export default nextConfig;
