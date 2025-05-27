@@ -1,8 +1,7 @@
 "use client"
 import ContactForm from "@/app/components/ContactForm";
-import Image from "next/image";
 
-export default function ContactPage() {
+function ContactPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#d3f1e8] to-white p-8">
       <h1 className="text-4xl font-bold text-blue-900 mb-4">CONTACT US</h1>
@@ -20,3 +19,5 @@ export default function ContactPage() {
     </div>
   );
 }
+
+export default ContactPage
