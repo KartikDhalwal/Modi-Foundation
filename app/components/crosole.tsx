@@ -2,8 +2,11 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import Image from "next/image";
 import { ArrowRightIcon } from "@radix-ui/react-icons";
 import { useRouter } from "next/navigation";
+import { useMediaQuery, useTheme } from "@mui/material";
 
-const Carousel1 = ({ isMobile }: { isMobile: boolean }) => {
+const Carousel1 = () => {
+  const theme = useTheme();
+  const isMobile: boolean = useMediaQuery(theme.breakpoints.down("sm"));
   const router = useRouter();
   const images = [
     {
@@ -14,58 +17,59 @@ const Carousel1 = ({ isMobile }: { isMobile: boolean }) => {
       text3: "Your Sustainable Living = a Ecosystem’s Balance ",
     },
   ];
-let responsive = isMobile
-
+  let responsive = isMobile;
   return (
     <div className="h-auto w-auto">
       {!responsive ? (
         <>
           {images.map((image, index) => (
             <div
-            key={index}
-            className="grid grid-cols-12 h-[650px] lg:h-[650px] xl:h-[650px] -mt-10"
-            style={{
-              backgroundImage: `url("${image.src}")`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-            }}
-          >
-            <div className="lg:col-span-12 col-span-12 lg:p-16 md:p-8 p-2 h-full flex flex-col items-start justify-start">
-              {/* Row containing logo, text1, and text2 */}
-              <div className="flex items-center">
-                {/* Logo */}
-                <Image
-                  src="/logo.png"
-                  alt="Logo"
-                  width={400}
-                  height={400}
-                  className="object-contain"
-                />
-                {/* Text 1 and Text 2 */}
-                <div className="text-left -mt-2">
-                  <div className="text-[#00FF51] text-[14px] md:text-[20px] font-medium lg:text-[40px] font-['Inria_Serif']">
-                    {image.text1}
-                  </div>
-                  <div className="text-[#00FF51] text-[14px] md:text-[20px]  lg:text-[15px] font-['Dubai']">
-                    {image.text2}
+              key={index}
+              className="grid grid-cols-12 h-[650px] lg:h-[650px] xl:h-[650px] -mt-10"
+              style={{
+                backgroundImage: `url("${image.src}")`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }}
+            >
+              <div className="lg:col-span-12 col-span-12 lg:p-16 md:p-8 p-2 h-full flex flex-col items-start justify-start">
+                {/* Row containing logo, text1, and text2 */}
+                <div className="flex items-center">
+                  {/* Logo */}
+                  <Image
+                    src="/logo.png"
+                    alt="Logo"
+                    width={400}
+                    height={400}
+                    className="object-contain"
+                  />
+                  {/* Text 1 and Text 2 */}
+                  <div className="text-left -mt-2">
+                    <div className="text-[#00FF51] text-[14px] md:text-[20px] font-medium lg:text-[40px] font-['Inria_Serif']">
+                      {image.text1}
+                    </div>
+                    <div className="text-[#00FF51] text-[14px] md:text-[20px]  lg:text-[15px] font-['Dubai']">
+                      {image.text2}
+                    </div>
                   </div>
                 </div>
-              </div>
-          
-              {/* Text 3 below */}
-              <div className="text-[white] text-[12px] md:text-[14px] lg:text-[40px] mt-2 ml-16 text-right font-bold">
-                {image.text3}
-              </div>
-              <div className="text-[white] text-[12px] md:text-[14px] lg:text-[20px] mt-4 ml-16 text-right font-bold">
-               <button className="flex border-2 p-2" onClick={() => router.push('/donation/donationForm')}>
-                DONATE NOW <ArrowRightIcon className="mt-2 ml-2" /> 
-               </button>
+
+                {/* Text 3 below */}
+                <div className="text-[white] text-[12px] md:text-[14px] lg:text-[40px] mt-2 ml-16 text-right font-bold">
+                  {image.text3}
+                </div>
+                <div className="text-[white] text-[12px] md:text-[14px] lg:text-[20px] mt-4 ml-16 text-right font-bold">
+                  <button
+                    className="flex border-2 p-2"
+                    onClick={() => router.push("/donation/donationForm")}
+                  >
+                    DONATE NOW <ArrowRightIcon className="mt-2 ml-2" />
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
-          
           ))}
-          </>
+        </>
       ) : (
         <div
           className="grid grid-cols-12 gap-2 lg:gap-6 px-2 md:px-4 h-[650px] lg:h-[650px] xl:h-[750px]"
@@ -86,10 +90,13 @@ let responsive = isMobile
               {images[0].text3}
             </div>
             <div className="text-[white] text-[12px] md:text-[14px] lg:text-[20px] mt-4 ml-16 text-right font-bold">
-               <button className="flex border-2 p-2 ml-14" onClick={() => router.push('/donation/donationForm')}>
-                DONATE NOW <ArrowRightIcon className="mt-0 ml-2" /> 
-               </button>
-              </div>
+              <button
+                className="flex border-2 p-2 ml-14"
+                onClick={() => router.push("/donation/donationForm")}
+              >
+                DONATE NOW <ArrowRightIcon className="mt-0 ml-2" />
+              </button>
+            </div>
           </div>
         </div>
       )}

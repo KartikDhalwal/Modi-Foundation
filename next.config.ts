@@ -7,9 +7,6 @@ const nextConfig: NextConfig = {
   typescript: {
     ignoreBuildErrors: true, // Disables TypeScript errors during build
   },
-  images: {
-    domains: ['erp.autovyn.com'], // Add allowed domains here
-  },
    webpack: (config) => {
     config.optimization.splitChunks = false
     return config

@@ -1,18 +1,27 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { List, ListItem, ListItemText } from "@mui/material";
+import {
+  List,
+  ListItem,
+  ListItemText,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
 import axios from "axios";
 import Link from "next/link";
 import { ArrowLeftIcon, ArrowRightIcon } from "@radix-ui/react-icons";
 import { useRouter } from "next/navigation";
 
-function Aboutus(isMobile) {
+function Aboutus() {
   const router = useRouter();
-  let responsive = isMobile?.isMobile;
-  const homeRef = useRef<HTMLElement>(null);
+  const theme = useTheme();
+
+  const isMobile: boolean = useMediaQuery(theme.breakpoints.down("sm"));
+
+  const ourInitiativesRef = useRef<HTMLElement>(null);
   const aboutRef = useRef<HTMLElement>(null);
-  const productsRef = useRef<HTMLElement>(null);
+  const programsPageRef = useRef<HTMLElement>(null);
   const servicesRef = useRef<HTMLElement>(null);
   const portfolioRef = useRef<HTMLElement>(null);
   const WhyautovynRef = useRef<HTMLElement>(null);
@@ -49,12 +58,20 @@ function Aboutus(isMobile) {
   }, []);
   const navOptions = [
     { label: "About Us", ref: aboutRef, id: "about", path: "whoWeAre" },
-    { label: "Our Initiatives", ref: homeRef, id: "home" },
-    { label: "Programs", ref: productsRef, id: "products" },
-    { label: "Volunteer", ref: homeRef, id: "mission" },
-    { label: "Get Involved", ref: portfolioRef, id: "portfolio" },
-    { label: "Resources", ref: servicesRef, id: "services" },
-    { label: "Contact Us", ref: WhyautovynRef, id: "contactUs" },
+    {
+      label: "Our Initiatives",
+      ref: ourInitiativesRef,
+      id: "ourInitiatives",
+      path: "ourInitiatives",
+    },
+    {
+      label: "Programs",
+      ref: programsPageRef,
+      id: "programs",
+      path: "programsPage",
+    },
+    { label: "Volunteer", ref: ourInitiativesRef, id: "volunteer" , path:"volunteer"},
+    { label: "Get Involved", ref: portfolioRef, id: "getInvovled" , path:"getInvovled" },
   ];
 
   return (
@@ -66,9 +83,9 @@ function Aboutus(isMobile) {
             sx={{
               display: "flex",
               flexDirection: "row",
-              flexWrap: responsive ? "wrap" : "nowrap",
-              justifyContent: responsive ? "center" : "flex-start",
-              gap: responsive ? "0.5rem 1rem" : "0.25rem 1rem",
+              flexWrap: isMobile ? "wrap" : "nowrap",
+              justifyContent: isMobile ? "center" : "flex-start",
+              gap: isMobile ? "0.5rem 1rem" : "0.25rem 1rem",
             }}
             className="mb-4 mt-2"
           >
