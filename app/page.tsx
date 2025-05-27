@@ -44,7 +44,7 @@ const Actions = dynamic(() => import("./(compWebsite)/actions/page"), {
 const Donation = dynamic(() => import("./(compWebsite)/donation/page"), {
   suspense: true,
 });
-const ContactPage = dynamic(() => import("./(compWebsite)/contactUs/page"), {
+const ContactPage = dynamic(() => import("@/app/(compWebsite)/contactUs/page"), {
   suspense: true,
 });
 

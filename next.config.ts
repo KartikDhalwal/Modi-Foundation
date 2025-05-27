@@ -1,4 +1,5 @@
 import type { NextConfig } from 'next';
+import path from 'path';
 
 const nextConfig: NextConfig = {
   eslint: {
@@ -8,9 +9,9 @@ const nextConfig: NextConfig = {
     ignoreBuildErrors: true, // Disables TypeScript errors during build
   },
    webpack: (config) => {
-    config.optimization.splitChunks = false
-    return config
-  }
+    config.resolve.alias["@"] = path.resolve(__dirname);
+    return config;
+  },
 };
 
 export default nextConfig;
