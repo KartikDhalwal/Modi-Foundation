@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { IoIosAddCircle } from "react-icons/io";
 
-export default function ContactPage() {
+export default function GetInvolvedPage() {
   const theme = useTheme();
   const isMobile: boolean = useMediaQuery(theme.breakpoints.down("sm"));
   const [selectedItem, setSelectedItem] = useState<number | null>(null);

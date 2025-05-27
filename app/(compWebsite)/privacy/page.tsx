@@ -2,7 +2,7 @@
 import * as React from "react";
 import Image from "next/image";
 
-function Whyautovyn() {
+function PrivacyPage() {
   return (
     <>
       <div className="font-[Frank] text-[#34251F] text-[32px] lg:text-[32px] text-center font-bold mb-5 mt-3">
@@ -66,4 +66,4 @@ function Whyautovyn() {
   );
 }
 
-export default Whyautovyn;
+export default PrivacyPage;

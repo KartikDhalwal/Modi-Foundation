@@ -23,7 +23,7 @@ const programItems = [
   },
 ];
 
-function Programs() {
+function ProgramsPage() {
   return (
     <div className="bg-white py-16 px-4 text-center">
       <h2 className="text-4xl font-bold font-josefin text-black mb-6">
@@ -60,4 +60,4 @@ function Programs() {
   );
 }
 
-export default Programs;
+export default ProgramsPage;

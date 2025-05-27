@@ -2,7 +2,7 @@
 import { useMediaQuery, useTheme } from "@mui/material";
 import Image from "next/image";
 
-export default function ContactPage() {
+export default function OutInitiativesPage() {
   const theme = useTheme();
   const isMobile: boolean = useMediaQuery(theme.breakpoints.down("sm"));
 

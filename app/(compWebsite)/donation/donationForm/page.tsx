@@ -6,7 +6,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { IoIosAddCircle } from "react-icons/io";
 
-export default function ContactPage() {
+export default function DonationFormPage() {
   const theme = useTheme();
   const isMobile: boolean = useMediaQuery(theme.breakpoints.down("sm"));
 
