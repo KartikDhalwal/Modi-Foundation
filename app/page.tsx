@@ -55,6 +55,7 @@ export default function Home() {
 
   const sectionRefs = {
     home: useRef<HTMLElement>(null),
+    actions: useRef<HTMLElement>(null),
     about: useRef<HTMLElement>(null),
     services: useRef<HTMLElement>(null),
     programs: useRef<HTMLElement>(null),
@@ -164,7 +165,7 @@ export default function Home() {
                   position: "relative",
                 }}
               >
-                {navOptions.map((item, index) => (
+                {navOptions.map((item: any, index: any) => (
                   <ListItem
                     key={index}
                     sx={{
@@ -196,7 +197,7 @@ export default function Home() {
                           minWidth: "150px",
                         }}
                       >
-                        {item.children.map((child, i) => (
+                        {item?.children?.map((child: any, i: any) => (
                           <ListItem
                             key={i}
                             sx={{
@@ -221,10 +222,10 @@ export default function Home() {
             <Box>
               <Suspense fallback={<SectionSkeleton />}>
                 <section ref={sectionRefs.home} id="home">
-                  <Home1 isMobile={isMobile} />
+                  <Home1 />
                 </section>
                 <section ref={sectionRefs.about} id="about">
-                  <Aboutus isMobile={isMobile} />
+                  <Aboutus />
                 </section>
                 <section ref={sectionRefs.programs} id="programs">
                   <Programs />
