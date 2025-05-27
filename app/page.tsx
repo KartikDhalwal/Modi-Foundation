@@ -21,6 +21,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import LoadingScreen from "./components/Loader";
 import SectionSkeleton from "./components/skeleton";
 import Footer from "./components/footer";
+import ContactPage from "./(compWebsite)/contactUs/page";
 
 // Lazy loading with dynamic import (better for Next.js)
 const Home1 = dynamic(() => import("./(compWebsite)/home1/page"), {
@@ -44,9 +45,7 @@ const Actions = dynamic(() => import("./(compWebsite)/actions/page"), {
 const Donation = dynamic(() => import("./(compWebsite)/donation/page"), {
   suspense: true,
 });
-const ContactPage = dynamic(() => import("@/app/(compWebsite)/contactUs/page"), {
-  suspense: true,
-});
+
 
 export default function Home() {
   const { scrollYProgress } = useScroll();
