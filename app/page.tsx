@@ -32,7 +32,7 @@ const Actions = dynamic(() => import("./(compWebsite)/actions/page"), {
 const Donation = dynamic(() => import("./(compWebsite)/donation/page"), {
   suspense: true,
 });
-const ContactPage = dynamic(() => import("./(compWebsite)/ContactUs/page"), {
+const ContactPage = dynamic(() => import("./(compWebsite)/contact/page"), {
   suspense: true,
 });
 
