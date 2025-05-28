@@ -1,4 +1,5 @@
 "use client"
+
 import ContactForm from "@/app/components/ContactForm";
 
 function ContactPage() {
@@ -20,4 +21,4 @@ function ContactPage() {
   );
 }
 
-export default ContactPage
+export default ContactPage;

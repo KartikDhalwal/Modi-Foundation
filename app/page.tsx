@@ -3,9 +3,6 @@
 import React, { useEffect, useRef, useState, Suspense } from "react";
 import dynamic from "next/dynamic";
 import {
-  AppBar,
-  Toolbar,
-  IconButton,
   Drawer,
   List,
   ListItem,
@@ -14,13 +11,10 @@ import {
 } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import MenuIcon from "@mui/icons-material/Menu";
-import { LuBellDot } from "react-icons/lu";
 import { useScroll } from "framer-motion";
 import "bootstrap/dist/css/bootstrap.min.css";
 import LoadingScreen from "./components/Loader";
 import SectionSkeleton from "./components/skeleton";
-import Footer from "./components/footer";
 
 // Lazy loading with dynamic import (better for Next.js)
 const Home1 = dynamic(() => import("./(compWebsite)/home1/page"), {
@@ -32,26 +26,17 @@ const Aboutus = dynamic(() => import("./(compWebsite)/about/page"), {
 const Programs = dynamic(() => import("./(compWebsite)/programs/page"), {
   suspense: true,
 });
-const AfterNews = dynamic(() => import("./(compWebsite)/afterNews/page"), {
-  suspense: true,
-});
-const AfterNews1 = dynamic(() => import("./(compWebsite)/afterNews1/page"), {
-  suspense: true,
-});
 const Actions = dynamic(() => import("./(compWebsite)/actions/page"), {
   suspense: true,
 });
 const Donation = dynamic(() => import("./(compWebsite)/donation/page"), {
   suspense: true,
 });
-const ContactPage = dynamic(() => import("./(compWebsite)/contactUs/page"), {
+const ContactPage = dynamic(() => import("./(compWebsite)/ContactUs/page"), {
   suspense: true,
 });
 
 export default function Home() {
-  const { scrollYProgress } = useScroll();
-  const theme = useTheme();
-  const isMobile: boolean = useMediaQuery(theme.breakpoints.down("sm"));
 
   const sectionRefs = {
     home: useRef<HTMLElement>(null),
