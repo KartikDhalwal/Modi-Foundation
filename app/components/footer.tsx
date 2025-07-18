@@ -39,20 +39,20 @@ export default function Footer({
         >
           <Box display="flex" alignItems="center" gap={1}>
             <span style={{ fontSize: "18px" }}><IoIosCall /></span>
-            <span>Call us for Enquiry : (+91) 70731 83163</span>
+            <span>Call us for Enquiry : (+91) 90500 28885</span>
           </Box>
           <Box display="flex" alignItems="center" gap={1}>
             <span style={{ fontSize: "16px" }}>✉️</span>
-            <span>support@modifoundation.com</span>
+            <span>yourmodifoundation@gmail.com</span>
           </Box>
         </Box>
 
         {/* Social Icons */}
         <Box display="flex" justifyContent="center" border={1} padding={3} mt={2} gap={3}>
-          <a href="#" aria-label="Facebook" className="flex bg-[#005632] items-center justify-center rounded-full p-2">
+          <a href="https://www.facebook.com/share/16mfWDGd88/" aria-label="Facebook" className="flex bg-[#005632] items-center justify-center rounded-full p-2">
           <FaFacebookF color="white"  />
           </a>
-          <a href="#" aria-label="Instagram" className="flex bg-[#005632] items-center justify-center rounded-full p-2">
+          <a href="https://www.instagram.com/modifoundationindia?igsh=MTFjN3hoZGk5aW5jYQ==" aria-label="Instagram" className="flex bg-[#005632] items-center justify-center rounded-full p-2">
           <FaInstagram color="white" />
           </a>
           <a href="#" aria-label="YouTube" className="flex bg-[#005632] items-center justify-center rounded-full p-2">

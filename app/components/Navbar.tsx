@@ -18,12 +18,12 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 
 const navOptions = [
-  { label: "Home", id: "home1" },
+  { label: "Home", id: "/" },
   { label: "About Us", id: "about" },
   { label: "Programs", id: "programs" },
   { label: "Actions", id: "actions" },
   { label: "Donation", id: "donation" },
-  { label: "Contact Us", id: "contactUs" },
+  { label: "Contact Us", id: "contact" },
 ];
 
 export default function NavBar() {

@@ -134,7 +134,7 @@ export default function ContactForm() {
             value={formData?.phone}
           />
         </div>
-        <div className="flex flex-col mb-4">
+        {/* <div className="flex flex-col mb-4">
           <label
             htmlFor="name"
             className="mb-1 text-sm font-medium text-gray-700"
@@ -163,7 +163,7 @@ export default function ContactForm() {
             className="input-style"
             option={options}
           />
-        </div>
+        </div> */}
         <div className="flex flex-col mb-4">
           <label
             htmlFor="name"
