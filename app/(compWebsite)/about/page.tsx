@@ -138,29 +138,24 @@ function Aboutus() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 md:gap-10">
                 {[
                   {
-                    title: "Our Project",
+                    title: "Tree Plantation & Social Forestry",
                     description:
-                      "Creating innovative solutions for a sustainable future.",
+                      "Mobilizing volunteers to restore green cover and revive local ecosystems",
                   },
                   {
-                    title: "Our Team",
+                    title: "Waste Management & Zero-Waste",
                     description:
-                      "A group of passionate individuals committed to change.",
+                      "Educating households and businesses on recycling, composting, and plastic reduction.",
                   },
                   {
-                    title: "Careers",
-                    description: "Join us and make a difference in the world.",
+                    title: "Renewable Energy Advocacy",
+                    description: "Promoting solar adoption and clean-energy solutions through targeted outreach.",
                   },
                   {
-                    title: "Press",
+                    title: "Disaster Relief & Resilience",
                     description:
-                      "Stay updated with our latest news and initiatives.",
-                  },
-                  {
-                    title: "FAQs",
-                    description:
-                      "Find answers to common questions about our work.",
-                  },
+                      "Delivering rapid aid and building climate-proof infrastructure in vulnerable areas.",
+                  }
                 ].map((item, index) => (
                   <div key={index} className="flex flex-col items-left">
                     <div className="text-left font-[Dubai] text-xl sm:text-2xl font-extrabold text-[#00620B]">
@@ -188,10 +183,10 @@ function Aboutus() {
           {/* Stats Section */}
           <div className="flex flex-wrap items-center justify-center sm:justify-around gap-4 p-4 sm:p-6">
             {[
-              { value: "45000", label: "Hectares" },
-              { value: "1M", label: "Trees" },
-              { value: "10000", label: "Plants" },
-              { value: "250", label: "Animals" },
+              { value: "50,000+", label: "Trees Planted" },
+              { value: "2,000+", label: "Volunteers Engaged" },
+              { value: "300+", label: "Schools Educated" },
+              { value: "25+", label: "Clean Energy Drives" },
             ].map((stat, index) => (
               <React.Fragment key={index}>
                 <div className="text-center text-green-900 min-w-[100px]">

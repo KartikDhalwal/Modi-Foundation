@@ -12,9 +12,9 @@ export default function GetInvolvedPage() {
   const faqItems = [
     {
       id: 1,
-      title: "What drives our passion for environmental conservation?",
+      title: "Is MODI Foundation a registered and verified NGO?",
       description:
-        "This is where you can add content that applies to the point above.",
+        "Yes, we are a registered non-governmental organization under the name Mission of Dream India Foundation, with NGO Darpan ID HR/2025/0513950 and CIN U85300HR2019NPL084417. We follow all statutory regulations and operate with transparency and accountability.",
     },
     {
       id: 2,
@@ -41,6 +41,18 @@ export default function GetInvolvedPage() {
         "How can you be a part of our mission to create a greener tomorrow?",
       description:
         "Steps to get involved, from small daily actions to long-term commitments.",
+    },
+    {
+      id: 6,
+      title: "What drives our passion for environmental conservation?",
+      description:
+        "This is where you can add content that applies to the point above.",
+    },
+    {
+      id: 7,
+      title: "How does MODI Foundation ensure transparency in its work?",
+      description:
+        "We regularly document our initiatives, provide impact reports, and maintain clear communication with our donors and supporters. Our team is committed to ethical practices and responsible management of all resources",
     },
   ];
 

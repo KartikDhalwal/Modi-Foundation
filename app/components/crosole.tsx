@@ -14,7 +14,7 @@ const Carousel1 = () => {
       alt: "image1",
       text1: "MODI FOUNDATION",
       text2: "Empowered by Hope, Inspired by Possibility",
-      text3: "Your Sustainable Living = a Ecosystem’s Balance ",
+      text3: "Join our movement for a greener, healthier future—where every action counts",
     },
   ];
   let responsive = isMobile;
@@ -55,7 +55,7 @@ const Carousel1 = () => {
                 </div>
 
                 {/* Text 3 below */}
-                <div className="text-[white] text-[12px] md:text-[14px] lg:text-[40px] mt-2 ml-16 text-right font-bold">
+                <div className="text-[white] text-[12px] md:text-[14px] lg:text-[40px] mt-2 ml-10 text-right font-bold">
                   {image.text3}
                 </div>
                 <div className="text-[white] text-[12px] md:text-[14px] lg:text-[20px] mt-4 ml-16 text-right font-bold">
